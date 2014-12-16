@@ -1,0 +1,27 @@
+<h1>Listing products</h1>
+
+<% @products.in_groups_of(3).each do |products| %>
+  <% products.select! {|x| !x.nil?} %>
+  <div class='row'>
+    <% products.each do |product| %>
+      <div class='col-md-4'>
+        <div class="thumbnail">
+            <img src= <%= product.thumburl %> >
+            <div class="caption">
+              <span class="listing-title"><%= product.name %></span>
+              <span class="listing-desc"><%= product.description %></span>
+              <div>
+	              <span><%= link_to 'Show', product, class: "btn btn-success" %></span>
+	              <span><%= link_to "Edit", edit_product_path(product.id), class: "btn btn-primary"  %></span>
+	              <span><%= link_to 'Delete', product, {data: {confirm: "Are you sure?"},method: :delete, class: "btn btn-danger"} %></span>
+              </div>
+              
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<br>
+
+<%= link_to 'New Product', new_product_path %>

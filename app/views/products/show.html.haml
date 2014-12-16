@@ -1,0 +1,7 @@
+.col-sm-12
+  %h3.text-center 
+    = @product.name + " from " + @product.category.name + " category" unless @product.category.nil?
+  .col-sm-8.col-sm-offset-2
+    = image_tag @product.thumburl
+  .col-sm-8.col-sm-offset-2
+    = @product.description

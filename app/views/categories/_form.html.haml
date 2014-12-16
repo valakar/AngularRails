@@ -1,0 +1,9 @@
+= form_for(@category) do |f|
+  %div.name
+    = f.label :name
+    = f.text_field :name
+  %div.thumburl
+    = f.label :thumburl
+    = f.url_field :thumburl
+  %div.actions
+    = f.submit 'go', class: "btn btn-success"
